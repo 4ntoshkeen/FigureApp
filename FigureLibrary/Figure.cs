@@ -1,5 +1,6 @@
 ﻿using System;
-
+using System.Linq;
+using System.Collections.Generic;
 
 namespace FigureLibrary
 {
@@ -11,6 +12,7 @@ namespace FigureLibrary
      ТАКЖЕ НЕОБХОДИМО ДОПОЛНИТЕЛЬНО СОЗДАТЬ МЕТОД ДЛЯ ВЫЧИСЛЕНИЯ ПЛОЩАДИ ФИГУРЫ, НО С БОЛЬШИМ КОЛИЧЕСТВОМ ПЕРЕДАВАЕМЫХ ПАРАМЕТРОВ.
           
      */
+
 
     public class Figure
     {
@@ -30,11 +32,41 @@ namespace FigureLibrary
         }
 
         // МЕТОД ДЛЯ ТРЕУГОЛЬНИКА
-        public double Area(int a, int b, int c)
+        public string Area(int a, int b, int c)
         {
+            
+            List<int> sides = new List<int>() { a, b ,c };
+
+            // ПРОВЕРКА НА ПРЯМОУГОЛЬНОСТЬ
+            int hypotenuse = sides.Max();
+            int index = sides.IndexOf(hypotenuse);
+            
+            Console.WriteLine("INDEX OF MAX INT: " + index + ", ELEMENT IS " + sides[index] + "."); 
+           
+            sides.RemoveAt(index);
+
+            int sum = 0; 
+
+            foreach (int side in sides)
+            {
+                sum = sum + side*side;
+            }
+
+            if (hypotenuse*hypotenuse ==  sum)
+            {
+                Console.WriteLine("*** ANGLE IS 90 ***");
+            }
+
+            else
+            {
+                Console.WriteLine("*** ANGLE IS NOT 90 ***");
+            }
+
+            // РАСЧЕТ ПЛОЩАДИ
             double semifPerimeter = (a + b + c) / 2;
-            double result = Math.Sqrt(semifPerimeter * (semifPerimeter - a) * (semifPerimeter - b) * (semifPerimeter - c));   
-            return result;
+            double result = Math.Sqrt(semifPerimeter * (semifPerimeter - a) * (semifPerimeter - b) * (semifPerimeter - c));
+            string resultString = "AREA IS: " + result + ".";
+            return resultString;
         }
 
     }

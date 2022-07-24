@@ -58,7 +58,7 @@ namespace FigureApp
                         //ВЫЧИСЛЯЕМ ПЛОЩАДЬ И ВЫВОДИМ В КОНСОЛИ
                         else
                         {
-                            Console.WriteLine("AREA IS: " + figure.Area(radiusNumber));                            
+                            Console.WriteLine(figure.Area(radiusNumber));                            
                         }
                     }
 
