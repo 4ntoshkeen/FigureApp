@@ -6,4 +6,4 @@
 
 3. Библиотека с методами для расчета площади фигур - "FigureLibrary";
 
-4. Метод main - "FigureApp".
+4. Метод main - "FigureApp/Program.cs".
